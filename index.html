@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PawWalks | Dog Walking in Polegate, East Sussex</title>
+
+  <meta name="description" content="PawWalks offers friendly, fully insured dog walking in Polegate, East Sussex. Local 1-to-1 dog walks, GPS-tracked routes, photo updates, and a free meet and greet.">
+  <meta name="keywords" content="dog walking Polegate, dog walker Polegate, local dog walker East Sussex, one to one dog walking Polegate, Cuckoo Trail dog walks, insured dog walker Polegate">
+  <meta name="theme-color" content="#7ba05b">
+
+  <meta property="og:title" content="PawWalks | Dog Walking in Polegate">
+  <meta property="og:description" content="Local, friendly dog walking in Polegate with 1-to-1 care, GPS-tracked walks, and photo updates.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #fdf6e3;
+      --paper-dark: #f0e6ce;
+      --ink: #43302b;
+      --leaf: #7ba05b;
+      --leaf-dark: #567c36;
+      --wood: #7c5c43;
+      --bell-gold: #eac036;
+      --cream: #fffdf5;
+      --radius: 26px;
+      --shadow: 4px 6px 0 rgba(67, 48, 43, 0.15);
+      --border: 3px solid var(--wood);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Merriweather", serif;
+      background-color: var(--paper);
+      background-image: radial-gradient(var(--paper-dark) 15%, transparent 16%);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .brand-font { font-family: "Playfair Display", serif; }
+    a { color: inherit; text-decoration: none; transition: 0.2s; }
+    img { max-width: 100%; display: block; }
+
+    .center { text-align: center; }
+    .muted { opacity: 0.8; font-size: 0.95em; }
+    .small { font-size: 0.85rem; }
+    .bold { font-weight: 700; }
+    .container { width: min(1100px, 94%); margin: 0 auto; }
+
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(253, 246, 227, 0.98);
+      backdrop-filter: blur(8px);
+      border-bottom: 3px dashed var(--wood);
+      padding: 1rem 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--wood);
+    }
+
+    .logo-icon {
+      font-size: 1.8rem;
+      animation: float 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-btn {
+      padding: 0.6rem 1.1rem;
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--wood);
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--leaf);
+      color: var(--leaf-dark);
+      background: white;
+    }
+
+    .nav-cta {
+      background: var(--leaf);
+      color: white !important;
+      margin-left: 10px;
+      box-shadow: 0 3px 0 var(--leaf-dark);
+    }
+
+    main { padding-bottom: 2rem; }
+
+    .panel {
+      background: var(--cream);
+      border-radius: var(--radius);
+      border: var(--border);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      padding: 3rem 0 2.5rem;
+      align-items: start;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 7vw, 4.4rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      color: var(--wood);
+    }
+
+    .hero-copy .intro {
+      font-size: 1.18rem;
+      margin-bottom: 1.5rem;
+      max-width: 34rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.15rem;
+      border-radius: 50px;
+      font-weight: 900;
+      transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      min-width: 130px;
+    }
+
+    .btn:hover {
+      transform: scale(1.03) translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-green {
+      background: var(--leaf);
+      color: #fff;
+      border: 2px solid var(--leaf-dark);
+    }
+
+    .btn-gold {
+      background: var(--bell-gold);
+      color: #2a1f1b;
+      border: 2px solid #c49f25;
+    }
+
+    .quick-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .quick-point {
+      background: rgba(255, 255, 255, 0.75);
+      border: 2px solid var(--paper-dark);
+      border-radius: 18px;
+      padding: 0.9rem 1rem;
+    }
+
+    .mini-badge {
+      background: var(--leaf);
+      color: white;
+      border: none;
+      transform: rotate(-1deg);
+    }
+
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 1.3rem;
+      flex-wrap: wrap;
+    }
+
+    .clipboard-form {
+      background: #fff;
+      background-image: linear-gradient(#f1f1f1 1px, transparent 1px);
+      background-size: 100% 2.4em;
+      line-height: 2.4em;
+      padding: 2.2rem !important;
+    }
+
+    .clipboard-form p {
+      line-height: 1.55;
+      margin-top: 0;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: rgba(240, 230, 206, 0.3);
+      border: none;
+      border-bottom: 2px solid var(--wood);
+      padding: 0.8rem;
+      font-family: "Merriweather", serif;
+      color: var(--ink);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      background: #fff;
+      border-bottom-color: var(--leaf);
+    }
+
+    section { margin-bottom: 3.5rem; }
+
+    .section-head {
+      max-width: 700px;
+      margin: 0 auto 1.6rem;
+      text-align: center;
+    }
+
+    .gallery-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--paper-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .benefit-grid,
+    .info-grid,
+    .faq-grid,
+    .price-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .benefit-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 1.5rem;
+    }
+
+    .benefit-card,
+    .faq-card {
+      background: white;
+      border: 2px solid var(--paper-dark);
+      border-radius: 18px;
+      padding: 1.15rem;
+    }
+
+    .benefit-icon {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .check-list {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+
+    .check-list li { margin-bottom: 0.6rem; }
+
+    .price-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .price-card {
+      border: 2px solid var(--paper-dark);
+      background: white;
+      padding: 1.2rem;
+      border-radius: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .senior-price-card {
+      margin-top: 1.5rem;
+      border: 3px solid var(--leaf);
+      background: #fffef0;
+      border-radius: 18px;
+      padding: 1.25rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .senior-rates {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(90px, 1fr));
+      gap: 0.6rem;
+      text-align: center;
+    }
+
+    .senior-rate {
+      background: white;
+      border: 2px dashed var(--paper-dark);
+      border-radius: 14px;
+      padding: 0.65rem 0.5rem;
+    }
+
+    .senior-rate strong {
+      display: block;
+      color: var(--leaf-dark);
+      font-size: 1.15rem;
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .contact-strip {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      border-top: 3px dashed rgba(124, 92, 67, 0.2);
+      padding: 4rem 0;
+      background: var(--paper-dark);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .nav-cta { margin-left: 0; }
+
+      .hero-grid { grid-template-columns: 1fr; }
+
+      .hero-copy { text-align: center; }
+
+      .hero-copy .intro { margin-left: auto; margin-right: auto; }
+
+      .hero-actions { justify-content: center; }
+
+      .trust-row { justify-content: center; }
+
+      .senior-price-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .senior-rates {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+
+      header.site { padding: 0.9rem 0; }
+
+      .panel { padding: 1.15rem; }
+
+      .clipboard-form { padding: 1.4rem !important; }
+
+      .price-card,
+      .senior-price-card,
+      .contact-strip {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .senior-price-card {
+        display: flex;
+      }
+
+      .senior-rates {
+        width: 100%;
+      }
+
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <span class="logo-icon">🐾</span>
+          <span class="brand-font">PawWalks</span>
+        </div>
+        <div class="nav-links">
+          <a href="#services" class="nav-btn">Services</a>
+          <a href="#gallery" class="nav-btn">Gallery</a>
+          <a href="#prices" class="nav-btn">Prices</a>
+          <a href="#faq" class="nav-btn">FAQ</a>
+          <a href="#booking" class="nav-btn">Book</a>
+          <a href="mailto:dogwalkpolegate@gmail.com" class="nav-btn nav-cta">Email</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-grid" aria-label="Dog walking in Polegate">
+      <div class="hero-copy">
+        <div class="panel mini-badge">
+          <h3 style="margin: 0;">Friendly local dog walker in Polegate</h3>
+          <p style="margin: 0.45rem 0 0; font-size: 0.98rem;">Free meet and greet, 1-to-1 care, and walks straight onto the Cuckoo Trail.</p>
+        </div>
+
+        <h1>Simple, local dog walking in Polegate.</h1>
+        <p class="intro">
+          PawWalks offers professional dog walking in Polegate, East Sussex for owners who want reliable, calm, one-to-one care.
+          Based near Polegate High Street, I walk local routes without crowded packs or long van journeys.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-green">Check availability</a>
+          <a href="#prices" class="btn btn-gold">View prices</a>
+        </div>
+
+        <div class="quick-points">
+          <div class="quick-point">
+            <div class="bold">1-to-1 dog walks</div>
+            <div class="small muted">No pack walking. Same-household dogs only.</div>
+          </div>
+          <div class="quick-point">
+            <div class="bold">GPS and photo updates</div>
+            <div class="small muted">Clear updates after each local dog walk.</div>
+          </div>
+          <div class="quick-point">
+            <div class="bold">Polegate and nearby routes</div>
+            <div class="small muted">Cuckoo Trail, quiet lanes, and familiar sniffing spots.</div>
+          </div>
+        </div>
+
+        <div class="trust-row">
+          <a href="https://www.protectivity.com/product/dog-walking-insurance/?showCert=true&amp;policy=BFck1xmWc7DQeKbCeHY4vA2" target="_blank" rel="noopener">
+            <img src="https://secure.protectivity.com/customer/siteseal/asset/31" alt="Protectivity dog walking insurance seal" width="130">
+          </a>
+          <div>
+            <div style="font-weight: 800; color: var(--leaf-dark);">Fully insured dog walking service</div>
+            <div class="small muted">Professional business cover for peace of mind.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="booking">
+        <div class="panel clipboard-form">
+          <h2 class="brand-font" style="color: var(--wood); margin-top: 0;">Check Availability</h2>
+          <p class="muted">
+            Tell me a little about your dog and the days you need. I will open the booking form with your details ready to send.
+          </p>
+
+          <div class="form-grid">
+            <input id="qbName" placeholder="Your name" aria-label="Your name">
+            <input id="qbPhone" placeholder="Phone or WhatsApp" aria-label="Phone or WhatsApp">
+            <input id="qbDog" placeholder="Dog's name and breed" aria-label="Dog name and breed">
+            <textarea id="qbNotes" rows="4" placeholder="Preferred days, walk length, and where you are in Polegate" aria-label="Preferred days and notes"></textarea>
+          </div>
+
+          <button id="qbSubmit" class="btn btn-green" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Send booking request 🐾</button>
+
+          <div class="small muted center" style="margin-top: 15px; line-height: 1.5;">
+            Helpful details: your area in Polegate, your dog's breed, and whether you want a 30 minute or 1 hour dog walk.
+          </div>
+
+          <div id="qbMsg" class="small center" style="margin-top: 1rem; color: var(--leaf-dark); font-weight: 700;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="panel">
+        <div class="section-head">
+          <h2 class="brand-font" style="color: var(--wood); margin-bottom: 0.5rem;">A simple service that is easy to trust</h2>
+          <p class="muted">Everything is designed to feel straightforward for busy owners and calm for dogs.</p>
+        </div>
+
+        <div class="benefit-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🕒</div>
+            <div class="bold">Reliable local timing</div>
+            <div class="small muted">Based in Polegate, so walks start locally and fit around regular weekday routines.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📸</div>
+            <div class="bold">Photo updates</div>
+            <div class="small muted">A quick WhatsApp update helps you know your dog is happy and safe.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📍</div>
+            <div class="bold">GPS-tracked walks</div>
+            <div class="small muted">Clear route tracking for extra reassurance on every dog walk.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🧼</div>
+            <div class="bold">Clean paws before home</div>
+            <div class="small muted">If the weather turns muddy, your dog is towel-dried before settling back in.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-grid" id="about">
+      <div class="panel">
+        <h2 class="brand-font" style="color: var(--leaf-dark); margin-top: 0;">Why owners choose PawWalks</h2>
+        <ul class="check-list">
+          <li><strong>One-to-one dog walking:</strong> ideal for dogs who prefer quieter, focused care.</li>
+          <li><strong>Local Polegate knowledge:</strong> familiar routes near the High Street, the Cuckoo Trail, and nearby quiet areas.</li>
+          <li><strong>Free meet and greet:</strong> a simple first step before booking regular walks.</li>
+          <li><strong>Friendly communication:</strong> clear updates, easy booking, and no complicated process.</li>
+        </ul>
+      </div>
+
+      <div class="panel" style="background: #fffef0; border-style: double;">
+        <h3 class="brand-font" style="margin-top: 0; color: var(--wood);">Kind words</h3>
+        <p style="font-style: italic;">
+          "Reliable, polite, and great with dogs. My boisterous Labrador is always happy to see PawWalks. Highly recommend."
+        </p>
+        <div style="text-align: right; font-weight: 800; color: var(--leaf-dark);">Local client, Polegate</div>
+      </div>
+    </section>
+
+    <section id="prices">
+      <div class="section-head">
+        <h2 class="brand-font" style="font-size: 2.4rem; color: var(--wood); margin-bottom: 0.5rem;">Clear, simple prices</h2>
+        <p class="muted">Straightforward rates for local dog walking in Polegate, with a lower rate for older owners who need regular help.</p>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-card">
+          <div>
+            <strong>30 Minute Walk</strong><br>
+            <span class="small muted">A shorter local dog walk for routine days.</span>
+          </div>
+          <a href="https://square.link/u/9Xvm2SMQ" target="_blank" rel="noopener" class="btn btn-gold">£10.00</a>
+        </div>
+        <div class="price-card">
+          <div>
+            <strong>1 Hour Walk</strong><br>
+            <span class="small muted">A full Polegate or Cuckoo Trail walk.</span>
+          </div>
+          <a href="https://square.link/u/T5BYWJn7" target="_blank" rel="noopener" class="btn btn-gold">£16.00</a>
+        </div>
+        <div class="price-card">
+          <div>
+            <strong>Two Dogs, Same Household</strong><br>
+            <span class="small muted">One hour for two dogs from the same home.</span>
+          </div>
+          <a href="https://square.link/u/wrmhIVGR" target="_blank" rel="noopener" class="btn btn-gold">£22.00</a>
+        </div>
+      </div>
+
+      <div class="senior-price-card">
+        <div>
+          <strong>Over-65s friendly rate</strong><br>
+          <span class="small muted">Lower prices for older owners who need a reliable local walker.</span>
+        </div>
+        <div class="senior-rates" aria-label="Over 65s dog walking prices">
+          <div class="senior-rate">
+            <strong>£8</strong>
+            <span class="small muted">30 mins</span>
+          </div>
+          <div class="senior-rate">
+            <strong>£13</strong>
+            <span class="small muted">1 hour</span>
+          </div>
+          <div class="senior-rate">
+            <strong>£18</strong>
+            <span class="small muted">two dogs</span>
+          </div>
+        </div>
+        <a href="#booking" class="btn btn-green">Ask for this rate</a>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <h2 class="brand-font" style="font-size: 2rem; color: var(--wood); margin-bottom: 0.5rem;">Common questions</h2>
+        <p class="muted">A few quick answers to make booking easier.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card">
+          <div class="bold">Do you still walk in bad weather?</div>
+          <div class="small muted">Yes. Walks still go ahead unless conditions are unsafe, and muddy paws are dried before your dog comes home.</div>
+        </div>
+        <div class="faq-card">
+          <div class="bold">Do you offer pack walks?</div>
+          <div class="small muted">No. PawWalks focuses on one-to-one dog walking or dogs from the same household only.</div>
+        </div>
+        <div class="faq-card">
+          <div class="bold">Where do you walk?</div>
+          <div class="small muted">Mostly around Polegate and nearby quiet routes, including the Cuckoo Trail and familiar local paths.</div>
+        </div>
+        <div class="faq-card">
+          <div class="bold">How do I get started?</div>
+          <div class="small muted">Send your details through the availability form, then we can arrange a free meet and greet.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <div class="contact-strip">
+          <div>
+            <h2 class="brand-font" style="margin: 0 0 0.4rem; color: var(--wood);">Ready to book a local dog walker?</h2>
+            <div class="muted">If you need dog walking in Polegate, send a quick request and I will get back to you as soon as possible.</div>
+          </div>
+          <a href="mailto:dogwalkpolegate@gmail.com" class="btn btn-green">Email PawWalks</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="center">
+    <div class="brand-font" style="font-size: 1.5rem; color: var(--wood);">© <span id="year">2026</span> PawWalks 🐾</div>
+    <p class="bold" style="margin: 10px 0;">Polegate High Street • Professional Dog Walking Service</p>
+    <div class="muted small">Fully insured • Local care • Easy booking</div>
+    <div class="small" style="margin-top: 20px;">
+      <a href="mailto:dogwalkpolegate@gmail.com" style="text-decoration: underline;">dogwalkpolegate@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfN-hlkJM0K8xvsLJuIQObw_8q1rjDifr0u1PgvI9GV30_phA/viewform?usp=pp_url";
+    const FIELD_NAME = "entry.1356670310";
+    const FIELD_PHONE = "entry.855551006";
+    const FIELD_DOG = "entry.70107334";
+    const FIELD_NOTES = "entry.1951937381";
+
+    document.getElementById("qbSubmit").addEventListener("click", () => {
+      const name = encodeURIComponent(document.getElementById("qbName").value.trim());
+      const phone = encodeURIComponent(document.getElementById("qbPhone").value.trim());
+      const dog = encodeURIComponent(document.getElementById("qbDog").value.trim());
+      const notes = encodeURIComponent(document.getElementById("qbNotes").value.trim());
+
+      if (!name || !phone) {
+        document.getElementById("qbMsg").innerText = "Please provide your name and phone number.";
+        return;
+      }
+
+      const url = `${FORM_URL}&${FIELD_NAME}=${name}&${FIELD_PHONE}=${phone}&${FIELD_DOG}=${dog}&${FIELD_NOTES}=${notes}`;
+      window.open(url, "_blank");
+      document.getElementById("qbMsg").innerText = "Opening your booking form...";
+    });
+
+  </script>
+</body>
+</html>
