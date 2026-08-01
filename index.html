@@ -261,6 +261,54 @@
       text-align: center;
     }
 
+    #slideStage {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--paper-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .slide-fade {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide-fade.active { opacity: 1; }
+
+    .slide-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #slideDots {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      z-index: 10;
+    }
+
+    #slideDots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    #slideDots button.active { background: #fff; }
+
     .benefit-grid,
     .info-grid,
     .faq-grid,
@@ -444,6 +492,7 @@
         </div>
         <div class="nav-links">
           <a href="#services" class="nav-btn">Services</a>
+          <a href="#how-it-works" class="nav-btn">How it works</a>
           <a href="#prices" class="nav-btn">Prices</a>
           <a href="#faq" class="nav-btn">FAQ</a>
           <a href="#booking" class="nav-btn">Book</a>
@@ -457,19 +506,19 @@
     <section class="hero-grid" aria-label="Dog walking in Polegate">
       <div class="hero-copy">
         <div class="panel mini-badge">
-          <h3 style="margin: 0;">Friendly local dog walker in Polegate</h3>
-          <p style="margin: 0.45rem 0 0; font-size: 0.98rem;">Free meet and greet, 1-to-1 care, and walks straight onto the Cuckoo Trail.</p>
+          <h3 style="margin: 0;">Now taking new Polegate bookings</h3>
+          <p style="margin: 0.45rem 0 0; font-size: 0.98rem;">Free meet and greet, 1-to-1 care, and calm local walks straight onto the Cuckoo Trail.</p>
         </div>
 
-        <h1>Simple, local dog walking in Polegate.</h1>
+        <h1>Need a reliable local dog walker in Polegate?</h1>
         <p class="intro">
-          PawWalks offers professional dog walking in Polegate, East Sussex for owners who want reliable, calm, one-to-one care.
-          Based near Polegate High Street, I walk local routes without crowded packs or long van journeys.
+          PawWalks offers calm, one-to-one dog walking in Polegate for busy owners who want trustworthy local help.
+          Based near Polegate High Street, I walk familiar local routes without crowded packs or long van journeys, and every new client starts with a free meet and greet.
         </p>
 
         <div class="hero-actions">
-          <a href="#booking" class="btn btn-green">Check availability</a>
-          <a href="#prices" class="btn btn-gold">View prices</a>
+          <a href="#booking" class="btn btn-green">Book a free meet & greet</a>
+          <a href="#prices" class="btn btn-gold">See prices</a>
         </div>
 
         <div class="quick-points">
@@ -500,22 +549,22 @@
 
       <div id="booking">
         <div class="panel clipboard-form">
-          <h2 class="brand-font" style="color: var(--wood); margin-top: 0;">Check Availability</h2>
+          <h2 class="brand-font" style="color: var(--wood); margin-top: 0;">Book your free meet & greet</h2>
           <p class="muted">
-            Tell me a little about your dog and the days you need. I will open the booking form with your details ready to send.
+            Tell me a little about your dog and the days you need. I will open the booking form with your details ready to send. No payment today — just a quick first step to check availability.
           </p>
 
           <div class="form-grid">
             <input id="qbName" placeholder="Your name" aria-label="Your name">
             <input id="qbPhone" placeholder="Phone or WhatsApp" aria-label="Phone or WhatsApp">
-            <input id="qbDog" placeholder="Dog's name and breed" aria-label="Dog name and breed">
-            <textarea id="qbNotes" rows="4" placeholder="Preferred days, walk length, and where you are in Polegate" aria-label="Preferred days and notes"></textarea>
+            <input id="qbDog" placeholder="Dog's name, breed, and age" aria-label="Dog name breed and age">
+            <textarea id="qbNotes" rows="4" placeholder="Your area in Polegate, preferred days, and whether you need 30 mins or 1 hour" aria-label="Preferred days and notes"></textarea>
           </div>
 
-          <button id="qbSubmit" class="btn btn-green" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Send booking request 🐾</button>
+          <button id="qbSubmit" class="btn btn-green" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Request my free meet & greet 🐾</button>
 
           <div class="small muted center" style="margin-top: 15px; line-height: 1.5;">
-            Helpful details: your area in Polegate, your dog's breed, and whether you want a 30 minute or 1 hour dog walk.
+            Takes about 30 seconds. Helpful details: your area in Polegate, your dog's breed, and whether you want a 30 minute or 1 hour dog walk.
           </div>
 
           <div id="qbMsg" class="small center" style="margin-top: 1rem; color: var(--leaf-dark); font-weight: 700;"></div>
@@ -555,6 +604,32 @@
       </div>
     </section>
 
+    <section id="how-it-works">
+      <div class="panel">
+        <div class="section-head">
+          <h2 class="brand-font" style="color: var(--wood); margin-bottom: 0.5rem;">How booking works</h2>
+          <p class="muted">Make the first step feel easy.</p>
+        </div>
+        <div class="benefit-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">1️⃣</div>
+            <div class="bold">Send your request</div>
+            <div class="small muted">Share your dog details, your area in Polegate, and the days you need.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">2️⃣</div>
+            <div class="bold">Arrange a free meet & greet</div>
+            <div class="small muted">A simple first chat to make sure your dog feels comfortable and the routine works for you.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">3️⃣</div>
+            <div class="bold">Start regular walks</div>
+            <div class="small muted">Choose a 30 minute or 1 hour walk and get photo and GPS updates after each visit.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="info-grid" id="about">
       <div class="panel">
         <h2 class="brand-font" style="color: var(--leaf-dark); margin-top: 0;">Why owners choose PawWalks</h2>
@@ -567,18 +642,20 @@
       </div>
 
       <div class="panel" style="background: #fffef0; border-style: double;">
-        <h3 class="brand-font" style="margin-top: 0; color: var(--wood);">Kind words</h3>
-        <p style="font-style: italic;">
-          "Reliable, polite, and great with dogs. My boisterous Labrador is always happy to see PawWalks. Highly recommend."
-        </p>
-        <div style="text-align: right; font-weight: 800; color: var(--leaf-dark);">Local client, Polegate</div>
+        <h3 class="brand-font" style="margin-top: 0; color: var(--wood);">A good fit for</h3>
+        <ul class="check-list">
+          <li><strong>Busy weekday owners</strong> who need reliable local help.</li>
+          <li><strong>Dogs who prefer quiet walks</strong> without large groups or van travel.</li>
+          <li><strong>Owners who want updates</strong> with photos and GPS reassurance after each walk.</li>
+          <li><strong>New clients</strong> who want to start with a free meet and greet before committing.</li>
+        </ul>
       </div>
     </section>
 
     <section id="prices">
       <div class="section-head">
         <h2 class="brand-font" style="font-size: 2.4rem; color: var(--wood); margin-bottom: 0.5rem;">Clear, simple prices</h2>
-        <p class="muted">Straightforward rates for local dog walking in Polegate, with a lower rate for older owners who need regular help.</p>
+        <p class="muted">Straightforward rates for local dog walking in Polegate, with a lower rate for older owners who need regular help. New clients can start with a free meet and greet before booking walks.</p>
       </div>
 
       <div class="price-grid">
@@ -651,6 +728,10 @@
           <div class="bold">How do I get started?</div>
           <div class="small muted">Send your details through the availability form, then we can arrange a free meet and greet.</div>
         </div>
+        <div class="faq-card">
+          <div class="bold">What happens after I send my request?</div>
+          <div class="small muted">I will review your details, confirm availability, and arrange a free meet and greet before any regular walks begin.</div>
+        </div>
       </div>
     </section>
 
@@ -658,10 +739,10 @@
       <div class="panel">
         <div class="contact-strip">
           <div>
-            <h2 class="brand-font" style="margin: 0 0 0.4rem; color: var(--wood);">Ready to book a local dog walker?</h2>
-            <div class="muted">If you need dog walking in Polegate, send a quick request and I will get back to you as soon as possible.</div>
+            <h2 class="brand-font" style="margin: 0 0 0.4rem; color: var(--wood);">Ready to book your free meet & greet?</h2>
+            <div class="muted">If you need dog walking in Polegate, send a quick request today and I will get back to you as soon as possible.</div>
           </div>
-          <a href="mailto:dogwalkpolegate@gmail.com" class="btn btn-green">Email PawWalks</a>
+          <a href="#booking" class="btn btn-green">Start my booking request</a>
         </div>
       </div>
     </section>
@@ -692,15 +773,17 @@
       const notes = encodeURIComponent(document.getElementById("qbNotes").value.trim());
 
       if (!name || !phone) {
-        document.getElementById("qbMsg").innerText = "Please provide your name and phone number.";
+        document.getElementById("qbMsg").innerText = "Please add your name and phone number so I can get back to you.";
         return;
       }
 
       const url = `${FORM_URL}&${FIELD_NAME}=${name}&${FIELD_PHONE}=${phone}&${FIELD_DOG}=${dog}&${FIELD_NOTES}=${notes}`;
       window.open(url, "_blank");
-      document.getElementById("qbMsg").innerText = "Opening your booking form...";
+      document.getElementById("qbMsg").innerText = "Opening your pre-filled booking form...";
     });
 
+    // Gallery removed for launch so the page stays honest and complete without placeholder images.
   </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
 </body>
 </html>
